@@ -9,7 +9,7 @@ echo 'Source code checked out successfully'
 }
 stage('Build Docker Image') {
 steps {
-sh 'docker build -t cicd-app .'
+sh 'docker build --no-cache -t cicd-app .'
 }
 }
 stage('Run Docker Container') {
