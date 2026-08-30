@@ -20,8 +20,8 @@ sh 'trivy image --severity HIGH,CRITICAL cicd-app'
 }
 stage('Run Docker Container') {
 steps {
-sh 'docker stop cicd-container || true'
-sh 'docker rm cicd-container || true'
+
+sh 'docker rm -f cicd-container || true'
 sh 'docker run -d -p 8888:8888 --name cicd-conatiner cicd-app'
 }
 }
