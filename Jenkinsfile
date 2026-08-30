@@ -21,7 +21,7 @@ sh 'trivy image --severity HIGH,CRITICAL cicd-app'
 stage('Run Docker Container') {
 steps {
 
-sh 'docker rm -f cicd-container || true'
+sh 'docker ps -aq --filter "name=^/cicd-container$" | xargs -r docker rm -f'
 sh 'docker run -d -p 8888:8888 --name cicd-conatiner cicd-app'
 }
 }
