@@ -15,7 +15,7 @@ sh 'docker build --no-cache -t cicd-app .'
 stage('Trivy Security Scan')
 {
 steps {
-sh 'trivy image --severity HIGH,CRITICAL cicd-app .'
+sh 'trivy image --severity HIGH,CRITICAL cicd-app'
 }
 }
 stage('Run Docker Container') {
